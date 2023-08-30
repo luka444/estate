@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   
+    <record id="estate_property_action" model="ir.actions.act_window">
+        <field name="name">Estate property action</field>
+        <field name="res_model">estate.property</field>
+        <field name="view_mode">kanban,tree,form,graph,calendar,pivot</field>
+        <field name="domain">[]</field>
+        <field name="context">{"search_default_available":1}</field>
+    </record>
+    
+    <record id="estate_property_type_action" model="ir.actions.act_window">
+        <field name="name">property type</field>
+        <field name="res_model">estate.property.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="estate_property_tag_action" model="ir.actions.act_window">
+        <field name="name">property tag</field>
+        <field name="res_model">estate.property.tag</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record id="estate_property_offer_action" model="ir.actions.act_window">
+        <field name="name">Property Offers</field>
+        <field name="res_model">estate.property.offer</field>
+        <field name="domain">[('property_type_id','=', active_id)]</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+    <menuitem id="estate_menu_root" name="Real Estate">
+        <menuitem id="advertisments_menu" name="Advertisements">
+            <menuitem id="properties_menu" name="Properties" action="estate_property_action"/>
+        </menuitem>
+        <menuitem id="settings_menu" name="Settings">
+            <menuitem id="property_type_menu" name="Property Types" action="estate_property_type_action"/>
+            <menuitem id="property_tag_menu" name="Property Tags" action="estate_property_tag_action"/>
+        </menuitem>        
+    </menuitem>
+</odoo>                                                                                                                                                                                              
